@@ -25,7 +25,12 @@ autocmd InsertLeave * call s:cdToRoot()
 inoremap <silent> <Plug>RelativeFilenameCompletion
         \ <Esc>:call <SID>temporaryLcd()<CR>a<C-x><C-f>
 
+inoremap <silent> <Plug>NormalFilenameCompletion
+        \ <Esc>:call <SID>cdToRoot()<CR>a<C-x><C-f>
+
 if !hasmapto('<Plug>RelativeFilenameCompletion')
             \ && empty(maparg('<C-x><C-r>', 'i'))
     imap <C-x><C-r> <Plug>RelativeFilenameCompletion
 endif
+
+imap <C-x><C-f> <Plug>NormalFilenameCompletion
